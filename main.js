@@ -7,7 +7,13 @@ function tongDiem() {
     var diemMon2 = document.getElementById("diem_2").value * 1;
     var diemMon3 = document.getElementById("diem_3").value * 1;
 
-    var tong = diemMon1 + diemMon2 + diemMon3;
+    var tong = ""
+
+    if(diemMon1 == 0 || diemMon2 == 0 || diemMon3 == 0){
+        tong = 0;
+    } else{
+        tong = diemMon1 + diemMon2 + diemMon3;
+    };
 
     return tong;
 }
@@ -18,47 +24,51 @@ function tinhDiem() {
     var tongDiemMon = tongDiem();
     var diemChuan = "";
 
-    if (diemKhuVuc == 1) {
-        if (diemDoiTuong == 1) {
-            diemChuan = tongDiemMon + 2 + 2.5;
-        } else if (diemDoiTuong == 2) {
-            diemChuan = tongDiemMon + 2 + 1.5;
-        } else if (diemDoiTuong == 3) {
-            diemChuan = tongDiemMon + 2 + 1;
-        } else {
-            diemChuan = tongDiemMon + 2;
-        };
-    } else if (diemKhuVuc == 2) {
-        if (diemDoiTuong == 1) {
-            diemChuan = tongDiemMon + 1 + 2.5;
-        } else if (diemDoiTuong == 2) {
-            diemChuan = tongDiemMon + 1 + 1.5;
-        } else if (diemDoiTuong == 3) {
-            diemChuan = tongDiemMon + 1 + 1;
-        } else {
-            diemChuan = tongDiemMon + 1;
-        };
-    } else if (diemKhuVuc == 3) {
-        if (diemDoiTuong == 1) {
-            diemChuan = tongDiemMon + 0.5 + 2.5;
-        } else if (diemDoiTuong == 2) {
-            diemChuan = tongDiemMon + 0.5 + 1.5;
-        } else if (diemDoiTuong == 3) {
-            diemChuan = tongDiemMon + 0.5 + 1;
-        } else {
-            diemChuan = tongDiemMon + 0.5;
-        };
+    if(tongDiemMon == 0){
+        diemChuan = "Do có điểm nhỏ hơn bằng 0";
     } else {
-        if (diemDoiTuong == 1) {
-            diemChuan = tongDiemMon + 2.5;
-        } else if (diemDoiTuong == 2) {
-            diemChuan = tongDiemMon + 1.5;
-        } else if (diemDoiTuong == 3) {
-            diemChuan = tongDiemMon + 1 + 1;
+        if (diemKhuVuc == 1) {
+            if (diemDoiTuong == 1) {
+                diemChuan = tongDiemMon + 2 + 2.5;
+            } else if (diemDoiTuong == 2) {
+                diemChuan = tongDiemMon + 2 + 1.5;
+            } else if (diemDoiTuong == 3) {
+                diemChuan = tongDiemMon + 2 + 1;
+            } else {
+                diemChuan = tongDiemMon + 2;
+            };
+        } else if (diemKhuVuc == 2) {
+            if (diemDoiTuong == 1) {
+                diemChuan = tongDiemMon + 1 + 2.5;
+            } else if (diemDoiTuong == 2) {
+                diemChuan = tongDiemMon + 1 + 1.5;
+            } else if (diemDoiTuong == 3) {
+                diemChuan = tongDiemMon + 1 + 1;
+            } else {
+                diemChuan = tongDiemMon + 1;
+            };
+        } else if (diemKhuVuc == 3) {
+            if (diemDoiTuong == 1) {
+                diemChuan = tongDiemMon + 0.5 + 2.5;
+            } else if (diemDoiTuong == 2) {
+                diemChuan = tongDiemMon + 0.5 + 1.5;
+            } else if (diemDoiTuong == 3) {
+                diemChuan = tongDiemMon + 0.5 + 1;
+            } else {
+                diemChuan = tongDiemMon + 0.5;
+            };
         } else {
-            diemChuan = tongDiemMon;
+            if (diemDoiTuong == 1) {
+                diemChuan = tongDiemMon + 2.5;
+            } else if (diemDoiTuong == 2) {
+                diemChuan = tongDiemMon + 1.5;
+            } else if (diemDoiTuong == 3) {
+                diemChuan = tongDiemMon + 1 + 1;
+            } else {
+                diemChuan = tongDiemMon;
+            };
         };
-    };
+    }
 
     return diemChuan;
 };
